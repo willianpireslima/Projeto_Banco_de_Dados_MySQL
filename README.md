@@ -5,7 +5,7 @@
 ![01_simples_diagrama](https://github.com/willianpireslima/exercicios-banco-de-dados-MySQL/assets/158337302/8fc3492f-6525-46dc-a528-ebc0378cb40d)
 ![01_simples_info](https://github.com/willianpireslima/exercicios-banco-de-dados-MySQL/assets/158337302/d7347531-55fa-466e-8a5d-e3dbbdd3d554)
 
-2)base de dados é gerenciar informações relacionadas à manufatura, especificamente sobre os funcionários e fábricas envolvidas no processo de produção.
+2)base de dados é gerenciar informações relacionadas à manufatura, especificamente sobre os funcionários e fábricas envolvidas no processo de produção.\
 ![02_manufatura_diagrama](https://github.com/willianpireslima/exercicios-banco-de-dados-MySQL/assets/158337302/ef625a12-f7b4-41f9-9594-e3a012663df1)
 ![02_manufatura_info](https://github.com/willianpireslima/exercicios-banco-de-dados-MySQL/assets/158337302/78db33fa-e553-47eb-a67f-7886c952ce26)
 
