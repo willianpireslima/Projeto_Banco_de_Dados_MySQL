@@ -10,7 +10,7 @@
 ![02_manufatura_info](https://github.com/willianpireslima/exercicios-banco-de-dados-MySQL/assets/158337302/78db33fa-e553-47eb-a67f-7886c952ce26)
 
 3) base de dados é gerenciar informações relacionadas aos funcionários, departamentos, projetos e seus dependentes em uma empresa.
-![03_empresa_diagram](https://github.com/willianpireslima/exercicios-banco-de-dados-MySQL/assets/158337302/b9608f3f-7687-491b-b20a-76c1ec47039f)
+![03_empresa_diagram](https://github.com/willianpireslima/Projeto_Banco_de_Dados_MySQL/assets/158337302/8fc81935-dffc-4dd1-b654-0fe749b87d8b)
 ![03_empresa_info](https://github.com/willianpireslima/exercicios-banco-de-dados-MySQL/assets/158337302/594c4079-5c1d-4a93-a429-ed922d7d3d02)
 
 4) base de dados é gerenciar informações relacionadas a livros, autores, editoras, depósitos e diferentes tipos de livros, incluindo didáticos, literários e de idiomas.
