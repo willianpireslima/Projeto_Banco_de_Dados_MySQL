@@ -1,234 +1,119 @@
-CREATE DATABASE  IF NOT EXISTS `faculdade` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `faculdade`;
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
---
--- Host: localhost    Database: faculdade
--- ------------------------------------------------------
--- Server version	8.0.36
+CREATE DATABASE faculdade;
+USE faculdade;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*Table structure for table curso*/;
+CREATE TABLE curso (
+  id_curso smallint NOT NULL,
+  nome varchar(20) DEFAULT NULL,
+  PRIMARY KEY (id_curso)
+);
 
---
--- Table structure for table `curso`
---
+/*Dumping data for table curso*/;
+INSERT INTO curso (id_curso, nome) VALUES 
+(1, 'Ciência Computação'),
+(2, 'Engenharia Elétrica'),
+(3, 'Administração');
 
-DROP TABLE IF EXISTS `curso`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `curso` (
-  `id_curso` smallint NOT NULL,
-  `nome` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id_curso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+/*Table structure for table estudante*/;
+CREATE TABLE estudante (
+  id_estudante smallint NOT NULL,
+  nome varchar(20) DEFAULT NULL,
+  endereco_rua varchar(20) DEFAULT NULL,
+  endereco_bairro varchar(20) DEFAULT NULL,
+  endereco_cidade varchar(20) DEFAULT NULL,
+  endereco_estado varchar(20) DEFAULT NULL,
+  PRIMARY KEY (id_estudante)
+);
 
---
--- Dumping data for table `curso`
---
+/*Dumping data for table estudante*/;
+INSERT INTO estudante (id_estudante, nome, endereco_rua, endereco_bairro, endereco_cidade, endereco_estado) VALUES 
+(1, 'João', 'Rua A', 'Bairro X', 'Cidade 1', 'Estado 1'),
+(2, 'Maria', 'Rua B', 'Bairro Y', 'Cidade 2', 'Estado 2'),
+(3, 'Pedro', 'Rua C', 'Bairro Z', 'Cidade 3', 'Estado 3');
 
-LOCK TABLES `curso` WRITE;
-/*!40000 ALTER TABLE `curso` DISABLE KEYS */;
-/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
-UNLOCK TABLES;
+/*Table structure for table estudante_curso*/;
+CREATE TABLE estudante_curso (
+  id_estudante smallint DEFAULT NULL,
+  id_curso smallint DEFAULT NULL
+);
 
---
--- Table structure for table `estudante`
---
+/*Dumping data for table estudante_curso*/;
+INSERT INTO estudante_curso (id_estudante, id_curso) VALUES 
+(1, 1), -- João no curso de Ciência da Computação
+(2, 2), -- Maria no curso de Engenharia Elétrica
+(3, 3); -- Pedro no curso de Administração
 
-DROP TABLE IF EXISTS `estudante`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `estudante` (
-  `id_estudante` smallint NOT NULL,
-  `nome` varchar(20) DEFAULT NULL,
-  `endereco_rua` varchar(20) DEFAULT NULL,
-  `endereco_bairro` varchar(20) DEFAULT NULL,
-  `endereco_cidade` varchar(20) DEFAULT NULL,
-  `endereco_estado` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id_estudante`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+/*Table structure for table telefone*/;
+CREATE TABLE telefone (
+  id_telefone tinyint NOT NULL,
+  PRIMARY KEY (id_telefone)
+);
 
---
--- Dumping data for table `estudante`
---
+/*Dumping data for table telefone*/;
+INSERT INTO telefone (id_telefone) VALUES 
+(1), -- Telefone 1
+(2), -- Telefone 2
+(3); -- Telefone 3
 
-LOCK TABLES `estudante` WRITE;
-/*!40000 ALTER TABLE `estudante` DISABLE KEYS */;
-/*!40000 ALTER TABLE `estudante` ENABLE KEYS */;
-UNLOCK TABLES;
+CREATE TABLE estudante_telefone (
+  id_telefone tinyint DEFAULT NULL,
+  id_estudante smallint DEFAULT NULL
+);
 
---
--- Table structure for table `estudante_curso`
---
+/*Dumping data for table estudante_telefone*/;
+INSERT INTO  estudante_telefone VALUES 
+(1, 1), -- Telefone de João
+(2, 2), -- Telefone de Maria
+(3, 3); -- Telefone de Pedro
 
-DROP TABLE IF EXISTS `estudante_curso`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `estudante_curso` (
-  `id_estudante` smallint DEFAULT NULL,
-  `id_curso` smallint DEFAULT NULL,
-  KEY `id_estudante` (`id_estudante`),
-  KEY `id_curso` (`id_curso`),
-  CONSTRAINT `estudante_curso_ibfk_1` FOREIGN KEY (`id_estudante`) REFERENCES `estudante` (`id_estudante`),
-  CONSTRAINT `estudante_curso_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `estudante_curso`
---
+/*Table structure for table professor*/;
+CREATE TABLE professor (
+  id_professor smallint NOT NULL,
+  nome varchar(20) DEFAULT NULL,
+  id_estudante smallint DEFAULT NULL,
+  PRIMARY KEY (id_professor)
+);
 
-LOCK TABLES `estudante_curso` WRITE;
-/*!40000 ALTER TABLE `estudante_curso` DISABLE KEYS */;
-/*!40000 ALTER TABLE `estudante_curso` ENABLE KEYS */;
-UNLOCK TABLES;
+/*Dumping data for table professor*/;
+INSERT INTO professor (id_professor, nome, id_estudante) VALUES 
+(1, 'Ana', 1), -- Ana é professor, mas não é estudante
+(2, 'Carlos', 2), -- Carlos é professor, mas não é estudante
+(3, 'Mariana', 2); -- Mariana é professor, mas não é estudante
 
---
--- Table structure for table `estudante_telefone`
---
+/*Table structure for table materia*/;
+CREATE TABLE materia (
+  id_materia smallint NOT NULL,
+  nome varchar(20) DEFAULT NULL,
+  id_professor smallint DEFAULT NULL,
+  id_curso smallint DEFAULT NULL,
+  PRIMARY KEY (id_materia)
+);
 
-DROP TABLE IF EXISTS `estudante_telefone`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `estudante_telefone` (
-  `id_telefone` tinyint DEFAULT NULL,
-  `id_estudante` smallint DEFAULT NULL,
-  KEY `id_telefone` (`id_telefone`),
-  KEY `id_estudante` (`id_estudante`),
-  CONSTRAINT `estudante_telefone_ibfk_1` FOREIGN KEY (`id_telefone`) REFERENCES `telefone` (`id_telefone`),
-  CONSTRAINT `estudante_telefone_ibfk_2` FOREIGN KEY (`id_estudante`) REFERENCES `estudante` (`id_estudante`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+/*Dumping data for table materia*/;
+INSERT INTO materia (id_materia, nome, id_professor, id_curso) VALUES 
+(1, 'Matemática', 1, 1), -- Matemática é ensinada pelo Professor 1 no curso de Ciência da Computação
+(2, 'Física', 2, 2), -- Física é ensinada pelo Professor 2 no curso de Engenharia Elétrica
+(3, 'Economia', 3, 3); -- Economia é ensinada pelo Professor 3 no curso de Administração
 
---
--- Dumping data for table `estudante_telefone`
---
+/*Table structure for table professor_curso*/;
+CREATE TABLE professor_curso (
+  id_professor smallint DEFAULT NULL,
+  id_curso smallint DEFAULT NULL
+);
 
-LOCK TABLES `estudante_telefone` WRITE;
-/*!40000 ALTER TABLE `estudante_telefone` DISABLE KEYS */;
-/*!40000 ALTER TABLE `estudante_telefone` ENABLE KEYS */;
-UNLOCK TABLES;
+/*Dumping data for table professor_curso*/;
+INSERT INTO professor_curso (id_professor, id_curso) VALUES 
+(1, 1), -- Ana leciona no curso de Ciência da Computação
+(2, 2), -- Carlos leciona no curso de Engenharia Elétrica
+(3, 3); -- Mariana leciona no curso de Administração
 
---
--- Table structure for table `materia`
---
-
-DROP TABLE IF EXISTS `materia`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `materia` (
-  `id_materia` smallint NOT NULL,
-  `nome` varchar(20) DEFAULT NULL,
-  `id_professor` smallint DEFAULT NULL,
-  `id_curso` smallint DEFAULT NULL,
-  PRIMARY KEY (`id_materia`),
-  KEY `id_professor` (`id_professor`),
-  KEY `id_curso_ibfk_1` (`id_curso`),
-  CONSTRAINT `id_curso_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`),
-  CONSTRAINT `materia_ibfk_1` FOREIGN KEY (`id_professor`) REFERENCES `professor` (`id_professor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `materia`
---
-
-LOCK TABLES `materia` WRITE;
-/*!40000 ALTER TABLE `materia` DISABLE KEYS */;
-/*!40000 ALTER TABLE `materia` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `professor`
---
-
-DROP TABLE IF EXISTS `professor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `professor` (
-  `id_professor` smallint NOT NULL,
-  `nome` varchar(20) DEFAULT NULL,
-  `id_estudante` smallint DEFAULT NULL,
-  PRIMARY KEY (`id_professor`),
-  KEY `id_estudante` (`id_estudante`),
-  CONSTRAINT `professor_ibfk_1` FOREIGN KEY (`id_estudante`) REFERENCES `estudante` (`id_estudante`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `professor`
---
-
-LOCK TABLES `professor` WRITE;
-/*!40000 ALTER TABLE `professor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `professor` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `professor_curso`
---
-
-DROP TABLE IF EXISTS `professor_curso`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `professor_curso` (
-  `id_professor` smallint DEFAULT NULL,
-  `id_curso` smallint DEFAULT NULL,
-  KEY `id_professor` (`id_professor`),
-  KEY `id_curso` (`id_curso`),
-  CONSTRAINT `professor_curso_ibfk_1` FOREIGN KEY (`id_professor`) REFERENCES `professor` (`id_professor`),
-  CONSTRAINT `professor_curso_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `professor_curso`
---
-
-LOCK TABLES `professor_curso` WRITE;
-/*!40000 ALTER TABLE `professor_curso` DISABLE KEYS */;
-/*!40000 ALTER TABLE `professor_curso` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `telefone`
---
-
-DROP TABLE IF EXISTS `telefone`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `telefone` (
-  `id_telefone` tinyint NOT NULL,
-  PRIMARY KEY (`id_telefone`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `telefone`
---
-
-LOCK TABLES `telefone` WRITE;
-/*!40000 ALTER TABLE `telefone` DISABLE KEYS */;
-/*!40000 ALTER TABLE `telefone` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2024-02-16 16:50:26
+ALTER TABLE estudante_curso ADD CONSTRAINT estudante_curso_ibfk_1 FOREIGN KEY (id_estudante) REFERENCES estudante (id_estudante);
+ALTER TABLE estudante_curso ADD CONSTRAINT estudante_curso_ibfk_2 FOREIGN KEY (id_curso) REFERENCES curso (id_curso);
+ALTER TABLE estudante_telefone ADD CONSTRAINT estudante_telefone_ibfk_1 FOREIGN KEY (id_telefone) REFERENCES telefone (id_telefone);
+ALTER TABLE estudante_telefone ADD CONSTRAINT estudante_telefone_ibfk_2 FOREIGN KEY (id_estudante) REFERENCES estudante (id_estudante);
+ALTER TABLE professor ADD CONSTRAINT professor_ibfk_1 FOREIGN KEY (id_estudante) REFERENCES estudante (id_estudante);
+ALTER TABLE materia  ADD CONSTRAINT id_curso_ibfk_1 FOREIGN KEY (id_curso) REFERENCES curso (id_curso);
+ALTER TABLE materia  ADD CONSTRAINT materia_ibfk_1 FOREIGN KEY (id_professor) REFERENCES professor (id_professor);
+ALTER TABLE professor_curso  ADD CONSTRAINT professor_curso_ibfk_1 FOREIGN KEY (id_professor) REFERENCES professor (id_professor);
+ALTER TABLE professor_curso  ADD CONSTRAINT professor_curso_ibfk_2 FOREIGN KEY (id_curso) REFERENCES curso (id_curso);
