@@ -1,5 +1,4 @@
-# exercicios-banco-de-dados-MySQL
- lista de banco de dados criados usando MySQL
+# lista de banco de dados criados usando MySQL
 
 1) base de dados é fornecer um sistema para o gerenciamento de produtos e pedidos.
 ![01_simples_diagrama](https://github.com/willianpireslima/exercicios-banco-de-dados-MySQL/assets/158337302/8fc3492f-6525-46dc-a528-ebc0378cb40d)
