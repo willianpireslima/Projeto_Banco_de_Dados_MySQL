@@ -40,6 +40,16 @@
 ![10_shop_online_diagrama](https://github.com/willianpireslima/exercicios-banco-de-dados-MySQL/assets/158337302/7a0ff9ce-d0ae-4ae1-9c89-b8b5c8f3ee9b)
 ![10_shop_online_info](https://github.com/willianpireslima/exercicios-banco-de-dados-MySQL/assets/158337302/7da61825-5796-4570-9ab0-57cc2ad321a8)
 
+### Programação em SQL com Trigger é Stored Procedures
+
+11)Simples base de dados de uma biblioteca com trigger para reduze ou aumentam a quantidade livros conforme a retirada ou devolução dos usarios alem de Stored Procedures para reduzir comandos
+
+![11_livraria_diagrama](https://github.com/willianpireslima/Projeto_Banco_de_Dados_MySQL/assets/158337302/b30179ab-2739-4cca-9261-9b3e4e3f18f0)
+![10_biblioteca_trigger](https://github.com/willianpireslima/Projeto_Banco_de_Dados_MySQL/assets/158337302/b18f3e08-c5f7-446d-8a78-57c28a5115c3)
+![10_biblioteca_stored](https://github.com/willianpireslima/Projeto_Banco_de_Dados_MySQL/assets/158337302/d72b5cb9-5334-43d1-8b72-47ce7344281c)
+
+
+
 
 
 
