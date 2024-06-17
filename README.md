@@ -50,4 +50,4 @@
 
 ![11_livraria_diagrama](https://github.com/willianpireslima/Projeto_Banco_de_Dados_MySQL/assets/158337302/b30179ab-2739-4cca-9261-9b3e4e3f18f0)
 ![10_biblioteca_trigger](https://github.com/willianpireslima/Projeto_Banco_de_Dados_MySQL/assets/158337302/b18f3e08-c5f7-446d-8a78-57c28a5115c3)
-![10_biblioteca_storedv2](https://github.com/willianpireslima/Projeto_Banco_de_Dados_MySQL/assets/158337302/8994c473-7af0-41c9-9dc1-37085f181793)
+![10_biblioteca_storedv3](https://github.com/willianpireslima/Projeto_Banco_de_Dados_MySQL/assets/158337302/5b61f5f5-d745-4b43-a393-20c7d477f5e4)
